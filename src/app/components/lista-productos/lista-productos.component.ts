@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-lista-productos',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListaProductosComponent implements OnInit {
 
 	public title: string;
-  constructor(private _route: ActivateRoute,
+  constructor(private _route: ActivatedRoute,
   	private _router: Router) { 
   	this.title = 'listado de listado de productos';
   }

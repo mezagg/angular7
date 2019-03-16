@@ -1,11 +1,11 @@
 
 <div id="content" class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
   <header id="header" class="col-lg-12">
-    <h1>
+    <h1 class="title">
       {{title}}
     </h1>
   </header>
-  <nav class="col-lg-12">
+  <nav id="nav" class="col-lg-12">
     <ul>
       <li> <a href="#">Inicio</a></li>
       <li> <a href="#">Productos</a></li>
@@ -14,8 +14,10 @@
   </nav>
   <section id="main">
     <h3>Texto principal</h3>
+    <button (click)="toggleTitle()">Titulo</button>
   </section>
   <footer class="col-lg-12">
+    Curso de Angular
   </footer>
 </div>
 

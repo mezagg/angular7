@@ -1,40 +1,46 @@
-//modules
-import {NgModule } from  '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+// Modulos
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from  '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { AdminRoutingModule } from './admin-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {AdminRoutingModule} from './admin-routing.module';
+// Componentes
+import { MainComponent } from './components/main/main.component';
+import { ListComponent } from './components/list/list.component';
+import { AddComponent } from './components/add/add.component';
+import { EditComponent } from './components/edit/edit.component';
 
-//Componentes
-import { MainComponent} from './components/main/main.component';
-import { ListComponent} from './components/list/list.component';
-import { AddComponent} from './components/add/add.component';
-import { EditComponent} from './components/edit/edit.component';
+// Servicios
+import {UserService} from '../services/user.service';
+import {AdminGuard} from '../services/admin.guard';
+import {SearchPipe} from './pipes/search.pipe';
 
-
-@NgModule(
-  {
-    declarations:[
-      MainComponent,
-      ListComponent,
-      AddComponent,
-      EditComponent
-    ],
-    imports:[
-      CommonModule,
-      FormsModule,
-      HttpModule,
-      AdminRoutingModule
-    ],
-    exports:[ //Si se quieren usar estos componentes fuera del modulo
-      MainComponent,
-      ListComponent,
-      AddComponent,
-      EditComponent
-    ],
-    providers:[]
-  }
-)
-export class AdminModule{}
-
+@NgModule({
+	declarations: [
+		MainComponent,
+		ListComponent,
+		AddComponent,
+		EditComponent,
+		SearchPipe
+	],
+	imports: [
+		CommonModule,
+		FormsModule,
+		HttpModule,
+		AdminRoutingModule,
+		BrowserAnimationsModule
+	],
+	exports: [
+		MainComponent,
+		ListComponent,
+		AddComponent,
+		EditComponent
+	],
+	providers: [
+		UserService,
+		AdminGuard
+	]
+})
+export class AdminModule { }

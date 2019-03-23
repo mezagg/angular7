@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit{
 	onSubmit(){
 		// Loguear al usuario y conseguir el objeto
 		this._userService.signup(this.user).subscribe(
-      (response: {user: User}) => {
+      (response: {user: User, token: string}) => {
 				this.identity = response.user;
 
 				if(!this.identity || !this.identity._id){
@@ -65,12 +65,9 @@ export class LoginComponent implements OnInit{
 				}
 			},
 			error => {
-				var errorMessage = <any>error;
-
-				if(errorMessage != null){
-					var body = JSON.parse(error._body);
+				console.log(error);
 					this.status = 'error';
-				}
+
 			}
 		);
 	}
